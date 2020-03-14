@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment version="1090" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MyDocument">
+            <connections>
+                <outlet property="window" destination="5" id="18"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="5" userLabel="Window">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="498" y="652" width="223" height="125"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
+            <view key="contentView" autoresizesSubviews="NO" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="223" height="125"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="21">
+                        <rect key="frame" x="81" y="56" width="124" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="fMW-ag-TH2"/>
+                        </constraints>
+                        <sliderCell key="cell" alignment="left" maxValue="11" doubleValue="5" tickMarkPosition="above" sliderType="linear" id="45">
+                            <font key="font" metaFont="user"/>
+                        </sliderCell>
+                        <connections>
+                            <binding destination="33" name="value" keyPath="selection.volume" id="42"/>
+                        </connections>
+                    </slider>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                        <rect key="frame" x="77" y="12" width="82" height="32"/>
+                        <buttonCell key="cell" type="push" title="Mute" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="46">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="muteTrack:" target="-2" id="40"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="23">
+                        <rect key="frame" x="83" y="83" width="120" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="47">
+                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0.00" negativeFormat="-0.00" hasThousandSeparators="NO" thousandSeparator="," id="24">
+                                <attributedString key="attributedStringForZero">
+                                    <fragment content="0.00"/>
+                                </attributedString>
+                                <decimal key="minimum" value="NaN"/>
+                                <decimal key="maximum" value="NaN"/>
+                            </numberFormatter>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="33" name="value" keyPath="selection.volume" id="41"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" preferredMaxLayoutWidth="57" translatesAutoresizingMaskIntoConstraints="NO" id="25">
+                        <rect key="frame" x="17" y="85" width="61" height="17"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Volume:" id="48">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="25" firstAttribute="top" secondItem="6" secondAttribute="top" constant="23" id="0T5-vp-ev6"/>
+                    <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" constant="20" symbolic="YES" id="4f4-2M-5hf"/>
+                    <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="70" id="7yw-Pg-B31"/>
+                    <constraint firstItem="23" firstAttribute="top" secondItem="6" secondAttribute="top" constant="20" symbolic="YES" id="8qx-jV-q8J"/>
+                    <constraint firstItem="25" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="19" id="9Re-ib-Sv7"/>
+                    <constraint firstItem="23" firstAttribute="trailing" secondItem="21" secondAttribute="trailing" id="COv-Gr-nWW"/>
+                    <constraint firstItem="23" firstAttribute="leading" secondItem="25" secondAttribute="trailing" constant="7" id="Jdf-R9-dvf"/>
+                    <constraint firstItem="21" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="83" id="RiL-cx-upW"/>
+                    <constraint firstItem="23" firstAttribute="baseline" secondItem="25" secondAttribute="firstBaseline" id="XhA-Xg-A9H"/>
+                    <constraint firstItem="21" firstAttribute="top" secondItem="23" secondAttribute="bottom" constant="8" symbolic="YES" id="acl-mi-tXd"/>
+                    <constraint firstItem="21" firstAttribute="leading" secondItem="22" secondAttribute="leading" id="kG7-cV-ko5"/>
+                    <constraint firstItem="23" firstAttribute="leading" secondItem="21" secondAttribute="leading" id="rnN-cf-BFl"/>
+                    <constraint firstItem="22" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="18" id="xYE-H1-uew"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="17"/>
+            </connections>
+            <point key="canvasLocation" x="140" y="147"/>
+        </window>
+        <objectController id="33">
+            <declaredKeys>
+                <string>number</string>
+                <string>volume</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="track" id="43"/>
+            </connections>
+        </objectController>
+    </objects>
+</document>
